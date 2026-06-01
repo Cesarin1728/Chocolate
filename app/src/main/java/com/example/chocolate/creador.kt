@@ -1,5 +1,6 @@
 package com.example.chocolate
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -29,6 +30,14 @@ class creador : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu, menu)
+        val sharedPref = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
+        val rol = sharedPref.getString("rol", "")
+        if (rol == "Trabajador") {
+            menu?.findItem(R.id.opc1)?.isVisible = false
+            menu?.findItem(R.id.opc2)?.isVisible = false
+            menu?.findItem(R.id.opc3)?.isVisible = false
+            menu?.findItem(R.id.opc4)?.isVisible = false
+        }
         return super.onCreateOptionsMenu(menu)
     }
 
