@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 // Hereda de RecyclerView.Adapter. Preguntar maestra
 class EliminarAdapter (private val lista: MutableList<Chocolate>) : RecyclerView.Adapter<EliminarAdapter.ViewHolderClass>(){
 
-    private val itemSeleccion = mutableSetOf<Int>() // Como una lista mutable, pero no se pueden repetir elementos
+    private val itemSeleccion = mutableListOf<Int>()
 
     // onCreateViewHolder es para crear un nuevo item y que el ViewHolder sepa donde inflarlo.
     // Osea que infla nuestro XML item_holder_eliminar para cada tarjeta y así poder utilizarlo
@@ -42,7 +42,9 @@ class EliminarAdapter (private val lista: MutableList<Chocolate>) : RecyclerView
 
         holder.checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
-                itemSeleccion.add(position)
+                if (!itemSeleccion.contains(position)) {
+                    itemSeleccion.add(position)
+                }
             } else {
                 itemSeleccion.remove(position)
             }
@@ -53,8 +55,8 @@ class EliminarAdapter (private val lista: MutableList<Chocolate>) : RecyclerView
 
     fun eliminarCosa() {
         itemSeleccion.sortedDescending().forEach {
-            index -> lista.removeAt(index)
-            }
+                index -> lista.removeAt(index)
+        }
 
         itemSeleccion.clear()
         notifyDataSetChanged()
