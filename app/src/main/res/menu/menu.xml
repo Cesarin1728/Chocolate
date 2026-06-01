@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    activity_main-->
+    <item
+        android:id="@+id/opc1"
+        android:title="Registro"
+        />
+<!--    activity_ver-->
+    <item
+        android:id="@+id/opc2"
+        android:title="Ver"
+        />
+<!--    activity_guardarcambios-->
+    <item
+        android:id="@+id/opc3"
+        android:title="Editar"
+        />
+<!--    activity_eliminarchocolate-->
+    <item
+        android:id="@+id/opc4"
+        android:title="Eliminar"
+        android:icon="@drawable/icons_basura"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/opc5"
+        android:title="Sesión"
+        android:icon="@drawable/icons_salida"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/opc6"
+        android:title="Contacto"
+        />
+    <item
+        android:id="@+id/opc7"
+        android:title="Creador"
+        />
+</menu>

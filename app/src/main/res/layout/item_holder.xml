@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="120dp">
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/txtNombre"
+        android:textSize="25sp"
+        android:text="nombre"
+        android:background="#62bffc"
+        android:layout_width="205dp"
+        android:layout_height="100dp"
+        android:fontFamily="@font/letra"
+        android:clickable="true"
+        />
+    <!--        Nuevo elemento clickable, convierte el texto en un botón sin ser botón-->
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/txtMarca"
+        android:textSize="25sp"
+        android:text="Marca"
+        android:background="#95cff5"
+        android:layout_width="205dp"
+        android:layout_height="75dp"
+        android:fontFamily="@font/letra"/>
+
+</LinearLayout>
