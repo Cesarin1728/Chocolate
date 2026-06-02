@@ -97,9 +97,10 @@ class guardarcambios : AppCompatActivity() {
         // Mostrar el primer chocolate, también se pudo hacer con el .size y ver si es mayor a cero
         if (ListaChocolate.lista.isNotEmpty()) {
             mostrarChocolate(chocolateActual)
-        } else {
-            Toast.makeText(this, "No hay chocolates todavíá", Toast.LENGTH_SHORT).show()
         }
+//        else {
+//            Toast.makeText(this, "No hay chocolates todavíá", Toast.LENGTH_SHORT).show()
+//        }
 
         btnSiguiente.setOnClickListener { siguiente() }
         btnAnterior.setOnClickListener { anterior() }
@@ -138,9 +139,7 @@ class guardarcambios : AppCompatActivity() {
 
     private fun seleccionSpinner(spinner: Spinner, array: Array<String>, valor: String) {
         val posicion = array.indexOf(valor)
-        if (posicion >= 0) {
-            spinner.setSelection(posicion)
-        }
+        spinner.setSelection(posicion)
     }
 
     private fun guardarCambios() {

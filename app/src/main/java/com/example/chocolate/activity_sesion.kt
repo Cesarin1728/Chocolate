@@ -23,7 +23,8 @@ class activity_sesion : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_sesion)
 
-        sharedPref = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
+        //sharedPref es una API para almacenar colecciones pequeñas de datos clave valor
+        sharedPref = getSharedPreferences("Usuarios", Context.MODE_PRIVATE) //Abrimos o creamos el archivo Usuarios en modo privado [ara que solo nuestra app pueda acceder
         val editor = sharedPref.edit()
         editor.putString("admin_user", "Administrador")
         editor.putString("admin_pass", "admin1234")

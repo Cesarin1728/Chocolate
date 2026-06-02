@@ -55,9 +55,10 @@ class MainActivity : AppCompatActivity() {
         val tipo = resources.getStringArray(R.array.tipo)
         val peso = resources.getStringArray(R.array.peso)
 
-        val adapterPresentacion = ArrayAdapter(this, android.R.layout.simple_spinner_item, presentacion)
-        adapterPresentacion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spPresentacion.adapter = adapterPresentacion
+        //El adaptador sirve como intermediario entre una fuente de datos y una vista
+        val adapterPresentacion = ArrayAdapter(this, android.R.layout.simple_spinner_item, presentacion) //Array adapter es para colecciones sencillas de datos
+        adapterPresentacion.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item) //setDropDownViewResource para que las opciones se vean hacía abajo
+        spPresentacion.adapter = adapterPresentacion //Le asignamos el adaptador a nuestra vista
 
         val adapterTipoCacao = ArrayAdapter(this, android.R.layout.simple_spinner_item, tipoCacao)
         adapterTipoCacao.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

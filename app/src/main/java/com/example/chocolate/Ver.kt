@@ -26,10 +26,10 @@ class Ver : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         recy=findViewById<RecyclerView>(R.id.rv)
-        recy.layoutManager= LinearLayoutManager(this)
+        recy.layoutManager= LinearLayoutManager(this) //Como se organizan los elemetnos
 
-        val adapter = ChocoAdapter(ListaChocolate.lista)
-        recy.adapter=adapter
+        val adapter = ChocoAdapter(ListaChocolate.lista) //Asignamos le adapter y le pasamos la lista de chocolates
+        recy.adapter=adapter //Le damos a nuestra vista reciclada el adaptador
         adapter.notifyDataSetChanged() //Para que haga las actualizaciones al adaptador, como si le dijera "Hey te actualizaste"
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -44,7 +44,7 @@ class Ver : AppCompatActivity() {
         val sharedPref = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
         val rol = sharedPref.getString("rol", "")
         if (rol == "Trabajador") {
-            menu?.findItem(R.id.opc1)?.isVisible = false
+            menu?.findItem(R.id.opc1)?.isVisible = false //? si existe y es visible ya no se va a ver, si es null no lo aplica
             menu?.findItem(R.id.opc2)?.isVisible = false
             menu?.findItem(R.id.opc3)?.isVisible = false
             menu?.findItem(R.id.opc4)?.isVisible = false

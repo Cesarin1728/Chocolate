@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- Añadimos esta parte nueva para el permiso -->
+<!--    Le decimos que necesitamos usar el hardware del teléfono-->
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
 
+<!--    Declaramos el permiso, le decimos a android que se van a hacer llamadas-->
     <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
