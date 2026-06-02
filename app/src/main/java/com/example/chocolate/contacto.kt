@@ -42,30 +42,31 @@ class contacto : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(item.getItemId() == R.id.opc1){ //Principal - Registro
+        if(item.getItemId() == R.id.opc1){
             val cambio = Intent(this, MainActivity::class.java)
             startActivity(cambio)
         }
-        if(item.getItemId() == R.id.opc2){ //ver
+        if(item.getItemId() == R.id.opc2){
             val cambio = Intent(this, Ver::class.java)
             startActivity(cambio)
         }
-        if(item.getItemId() == R.id.opc3){ //guardarcambios
+        if(item.getItemId() == R.id.opc3){
             val cambio = Intent(this, guardarcambios::class.java)
             startActivity(cambio)
         }
-        if(item.getItemId() == R.id.opc4){ //eliminar
+        if(item.getItemId() == R.id.opc4){
             val cambio = Intent(this, eliminarchocolate::class.java)
             startActivity(cambio)
         }
-        if(item.getItemId() == R.id.opc5){ //cerrar sesion
+        if(item.getItemId() == R.id.opc5){
             val cambio = Intent(this, activity_sesion::class.java)
             startActivity(cambio)
         }
-        if(item.getItemId() == R.id.opc6){ //Contacto
-            Toast.makeText(this, "Ya estás en la opción", Toast.LENGTH_LONG).show()
+        if(item.getItemId() == R.id.opc6){
+//            val cambio = Intent(this, contacto::class.java)
+//            startActivity(cambio)
         }
-        if(item.getItemId() == R.id.opc7){ //Creador
+        if(item.getItemId() == R.id.opc7){
             val cambio = Intent(this, creador::class.java)
             startActivity(cambio)
         }

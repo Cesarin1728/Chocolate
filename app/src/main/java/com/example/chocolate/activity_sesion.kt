@@ -58,6 +58,9 @@ class activity_sesion : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         } else if (user == trabUser && pass == trabPass) {
             sharedPref.edit().putString("rol", "Trabajador").apply()
+            if (ListaChocolate.lista.isEmpty()) {
+                Toast.makeText(this, "No hay chocolates :(", Toast.LENGTH_SHORT).show()
+            }
             startActivity(Intent(this, Ver::class.java))
         } else if (user == adminUser || user == trabUser) {
             Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
