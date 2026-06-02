@@ -109,7 +109,10 @@ class guardarcambios : AppCompatActivity() {
 
     private fun siguiente() {
         if (ListaChocolate.lista.isNotEmpty()) {
-            chocolateActual = (chocolateActual + 1) % ListaChocolate.lista.size
+            chocolateActual = chocolateActual + 1
+            if (chocolateActual >= ListaChocolate.lista.size) {
+                chocolateActual = 0
+            }
             mostrarChocolate(chocolateActual)
         }
     }
