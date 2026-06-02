@@ -44,7 +44,7 @@ class Ver : AppCompatActivity() {
         val sharedPref = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
         val rol = sharedPref.getString("rol", "")
         if (rol == "Trabajador") {
-            menu?.findItem(R.id.opc1)?.isVisible = false //? si existe y es visible ya no se va a ver, si es null no lo aplica
+            menu?.findItem(R.id.opc1)?.isVisible = false //? solo si el objeto no es null no hace, si es null no hace nada
             menu?.findItem(R.id.opc2)?.isVisible = false
             menu?.findItem(R.id.opc3)?.isVisible = false
             menu?.findItem(R.id.opc4)?.isVisible = false
