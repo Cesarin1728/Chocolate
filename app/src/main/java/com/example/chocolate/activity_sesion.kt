@@ -48,7 +48,7 @@ class activity_sesion : AppCompatActivity() {
     // Registrar 10 chocolates
     // Modificar el país de un chocolate
     // Capturar los chocolates en aditar (incluyendo antes y después del cambio de país)
-    // Eliminar el 5to y penúltimo chocolate
+    // Eliminar el 5to y último chocolate
     // Tomar captura de los chocolates que quedaron
     // Capturas error sesión (para los 3 casos)
 
