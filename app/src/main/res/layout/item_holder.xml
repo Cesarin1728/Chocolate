@@ -21,7 +21,7 @@
         android:gravity="center"
         android:id="@+id/txtMarca"
         android:textSize="25sp"
-        android:text="Marca"
+        android:text="Raza"
         android:background="#95cff5"
         android:layout_width="205dp"
         android:layout_height="75dp"

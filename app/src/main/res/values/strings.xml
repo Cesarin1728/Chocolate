@@ -1,38 +1,36 @@
 <resources>
     <string name="app_name">Chocolate</string>
 
-    <string-array name="presentacion">
-        <item>Barra</item>
-        <item>Fruta</item>
-        <item>Bombón</item>
-        <item>Polvo</item>
+    <string-array name="especie">
+        <item>Perro</item>
+        <item>Gato</item>
+        <item>Tortuga</item>
+        <item>Ave</item>
     </string-array>
 
-    <string-array name="tipoCacao">
-        <item>Criollo</item>
-        <item>Forastero</item>
-        <item>Trinitario</item>
+    <string-array name="tamaño">
+        <item>Grande</item>
+        <item>Mediano</item>
+        <item>Pequeño</item>
     </string-array>
 
-    <string-array name="perfilSabor">
-        <item>Amargo</item>
-        <item>Dulce</item>
-        <item>Afrutado</item>
-        <item>Especiado</item>
+    <string-array name="pelaje">
+        <item>Largo</item>
+        <item>Nulo</item>
+        <item>Esponjoso</item>
+        <item>Liso</item>
     </string-array>
 
-    <string-array name="tipo">
-        <item>Amargo</item>
-        <item>Con leche</item>
-        <item>Blanco</item>
-        <item>Artesanal</item>
-        <item>SemiAmargo</item>
-        <item>Gourmet</item>
-        <item>Ruby</item>
+    <string-array name="comportamiento">
+        <item>Agresivo</item>
+        <item>Calmado</item>
+        <item>Pasivo</item>
+        <item>Territorial</item>
+        <item>Temperamental</item>
     </string-array>
 
     <string-array name="peso">
-        <item>100g</item>
+        <item>Menos de 1kg</item>
         <item>90g</item>
         <item>250g</item>
     </string-array>

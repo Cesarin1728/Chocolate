@@ -43,7 +43,7 @@
                 android:id="@+id/tvMarca"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Marca"
+                android:text="Raza"
                 android:textSize="15sp"
                 android:layout_marginBottom="8dp" />
 
@@ -51,7 +51,7 @@
                 android:id="@+id/tvPaisOrigen"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="País de Origen"
+                android:text="Alimento"
                 android:textSize="15sp"
                 android:layout_marginBottom="8dp" />
 
@@ -75,7 +75,7 @@
                 android:id="@+id/tvPorcentajeCacao"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="% Cacao"
+                android:text="Edad"
                 android:textSize="15sp"
                 android:layout_marginBottom="8dp" />
 
@@ -121,18 +121,20 @@
                 app:iconTint = "#15cc0e"
                 android:backgroundTint="#7B3F00"/>
 
-            <Button
-                android:id="@+id/btnVolver"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:text="Volver"
-                android:backgroundTint="#7B3F00"
-                />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
+    <Button
+        android:id="@+id/btnVolver"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:text="Volver"
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#7B3F00"
+        />
 
 
 </LinearLayout>

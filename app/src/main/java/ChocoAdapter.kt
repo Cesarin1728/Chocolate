@@ -23,7 +23,7 @@ class ChocoAdapter (private val lista: List<Chocolate>) : RecyclerView.Adapter<C
     ) {
         val item = lista[position]
         holder.nombre.text = item.nombre
-        holder.marca.text = item.marca
+        holder.raza.text = item.raza
         //Para el XML item_holder
         holder.nombre.setOnClickListener { //Revisar item_holder
             val context = holder.itemView.context //Decimos que vamos a trabajar con los textView de ese contexto
@@ -37,9 +37,9 @@ class ChocoAdapter (private val lista: List<Chocolate>) : RecyclerView.Adapter<C
     override fun getItemCount(): Int =lista.size
 
     class ViewHolderClass (view : View) :
-    RecyclerView.ViewHolder(view){
+        RecyclerView.ViewHolder(view){
         val nombre=view.findViewById<TextView>(R.id.txtNombre)
-        val marca=view.findViewById<TextView>(R.id.txtMarca)
+        val raza=view.findViewById<TextView>(R.id.txtRaza)
 
     }
 

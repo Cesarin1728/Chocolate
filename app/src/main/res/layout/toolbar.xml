@@ -2,7 +2,7 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="90dp"
-    android:background="#E6E3E3"
+    android:background="#0fd9d5"
     >
 
     <ImageView
@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Chocochoco"
+        android:text="Adopta"
         android:textStyle="bold"
         android:textSize="25sp"
         android:layout_marginTop="20dp"

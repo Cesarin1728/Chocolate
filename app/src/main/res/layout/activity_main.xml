@@ -1,75 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#95e3e6"
     android:orientation="vertical"
-    android:background="#cca383"
     tools:context=".MainActivity">
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        />
+        layout="@layout/toolbar" />
 
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:hint="Nombre" />
 
     <EditText
-        android:id="@+id/etMarca"
+        android:id="@+id/etRaza"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Marca"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:hint="Raza" />
 
     <EditText
-        android:id="@+id/etPaisOrigen"
+        android:id="@+id/etAlimento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="País de Origen"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:hint="Alimento" />
 
     <EditText
         android:id="@+id/etTelefono"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:hint="Teléfono de Contacto"
-        android:inputType="phone"
-        android:layout_margin="10dp" />
+        android:inputType="phone" />
 
     <Spinner
-        android:id="@+id/spPresentacion"
+        android:id="@+id/spEspecie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp" />
 
     <EditText
-        android:id="@+id/etPorcentajeCacao"
+        android:id="@+id/etEdad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="% Cacao"
-        android:inputType="numberDecimal"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"
+        android:hint="Edad"
+        android:inputType="numberDecimal" />
 
     <Spinner
-        android:id="@+id/spTipoCacao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
-
-    <Spinner
-        android:id="@+id/spPerfilSabor"
+        android:id="@+id/spTamaño"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp" />
 
     <Spinner
-        android:id="@+id/spTipo"
+        android:id="@+id/spPelaje"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp" />
+
+    <Spinner
+        android:id="@+id/spComportamiento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp" />
@@ -85,18 +85,17 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Aceptar"
-        android:backgroundTint="#7B3F00"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#0fd9d5"
+        android:text="Aceptar" />
 
     <Button
         android:id="@+id/btnVer"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="Chocolates"
-        android:textColorHint="@color/white"
-        android:backgroundTint="#7B3F00"
-        />
+        android:backgroundTint="#0fd9d5"
+        android:hint="Mascotas"
+        android:textColorHint="@color/white" />
 
 </LinearLayout>

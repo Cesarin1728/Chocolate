@@ -34,7 +34,7 @@ class EliminarAdapter (private val lista: MutableList<Chocolate>) : RecyclerView
         val item = lista[position] // Chocolate de la posición del holder
         // Ponemos los datos del chocolate en el holder
         holder.nombre.text = item.nombre
-        holder.tipo.text = item.tipo
+        holder.especie.text = item.especie
         holder.peso.text = item.peso
 
         // Es como el listener de un botón, pero aquí verifica si a la checkbox se le hace click
@@ -56,7 +56,7 @@ class EliminarAdapter (private val lista: MutableList<Chocolate>) : RecyclerView
 
     fun eliminarCosa() {
         itemSeleccion.sortedDescending().forEach {
-            index -> lista.removeAt(index)
+                index -> lista.removeAt(index)
         }
 
         itemSeleccion.clear()
@@ -66,7 +66,7 @@ class EliminarAdapter (private val lista: MutableList<Chocolate>) : RecyclerView
     class ViewHolderClass (view : View) :
         RecyclerView.ViewHolder(view){
         val nombre = view.findViewById<TextView>(R.id.tvNombre)
-        val tipo = view.findViewById<TextView>(R.id.tvTipo)
+        val especie = view.findViewById<TextView>(R.id.tvEspecie)
         val peso = view.findViewById<TextView>(R.id.tvPeso)
         val checkBox = view.findViewById<CheckBox>(R.id.cbSelect)
     }
