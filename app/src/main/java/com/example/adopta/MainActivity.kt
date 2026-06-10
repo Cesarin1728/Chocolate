@@ -1,6 +1,5 @@
-package com.example.chocolate
+package com.example.adopta
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -10,7 +9,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
@@ -107,7 +105,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val info = Chocolate(
+        val info = Mascota(
             nombre = nombre,
             raza = raza,
             alimento = alimento,
@@ -120,7 +118,7 @@ class MainActivity : AppCompatActivity() {
             peso = spPeso.selectedItem.toString()
         )
 
-        ListaChocolate.lista.add(info)
+        ListaMascota.lista.add(info)
         Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT).show()
     }
 
@@ -143,7 +141,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc4){
-            val cambio = Intent(this, eliminarchocolate::class.java)
+            val cambio = Intent(this, eliminarmascota::class.java)
             startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc5){

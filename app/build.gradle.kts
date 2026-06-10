@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.chocolate"
+    namespace = "com.example.adopta"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.chocolate"
+        applicationId = "com.example.adopta"
         minSdk = 28
         targetSdk = 36
         versionCode = 1

@@ -35,7 +35,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".eliminarchocolate"
+            android:name=".eliminarmascota"
             android:exported="false" />
         <activity
             android:name=".guardarcambios"

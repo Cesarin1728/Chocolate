@@ -1,4 +1,4 @@
-package com.example.chocolate
+package com.example.adopta
 
 import android.content.Intent
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ChocoAdapter (private val lista: List<Chocolate>) : RecyclerView.Adapter<ChocoAdapter.ViewHolderClass>(){
+class MascotaAdapter (private val lista: List<Mascota>) : RecyclerView.Adapter<MascotaAdapter.ViewHolderClass>(){
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -26,21 +26,19 @@ class ChocoAdapter (private val lista: List<Chocolate>) : RecyclerView.Adapter<C
         holder.raza.text = item.raza
         //Para el XML item_holder
         holder.nombre.setOnClickListener { //Revisar item_holder
-            val context = holder.itemView.context //Decimos que vamos a trabajar con los textView de ese contexto
+            val context = holder.itemView.context
             val tarj = Intent(context, tarjeta::class.java)
-            tarj.putExtra("pos", position) //Pasamos la posición del holder
-            //No se puede utilizar solo startActivity
+            tarj.putExtra("pos", position)
             context.startActivity(tarj)
         }
     }
 
-    override fun getItemCount(): Int =lista.size
+    override fun getItemCount(): Int = lista.size
 
     class ViewHolderClass (view : View) :
         RecyclerView.ViewHolder(view){
-        val nombre=view.findViewById<TextView>(R.id.txtNombre)
-        val raza=view.findViewById<TextView>(R.id.txtRaza)
-
+        val nombre = view.findViewById<TextView>(R.id.txtNombre)
+        val raza = view.findViewById<TextView>(R.id.txtRaza)
     }
 
 }

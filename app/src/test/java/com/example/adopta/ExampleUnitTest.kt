@@ -1,4 +1,4 @@
-package com.example.chocolate
+package com.example.adopta
 
 import org.junit.Test
 

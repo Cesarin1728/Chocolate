@@ -1,11 +1,10 @@
-package com.example.chocolate
+package com.example.adopta
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -28,7 +27,7 @@ class Ver : AppCompatActivity() {
         recy=findViewById<RecyclerView>(R.id.rv)
         recy.layoutManager= LinearLayoutManager(this) //Como se organizan los elemetnos
 
-        val adapter = ChocoAdapter(ListaChocolate.lista) //Asignamos le adapter y le pasamos la lista de chocolates
+        val adapter = MascotaAdapter(ListaMascota.lista) //Asignamos le adapter y le pasamos la lista de chocolates
         recy.adapter=adapter //Le damos a nuestra vista reciclada el adaptador
         adapter.notifyDataSetChanged() //Para que haga las actualizaciones al adaptador, como si le dijera "Hey te actualizaste"
 
@@ -66,7 +65,7 @@ class Ver : AppCompatActivity() {
             startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc4){
-            val cambio = Intent(this, eliminarchocolate::class.java)
+            val cambio = Intent(this, eliminarmascota::class.java)
             startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc5){

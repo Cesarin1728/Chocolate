@@ -1,11 +1,10 @@
-package com.example.chocolate
+package com.example.adopta
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -55,7 +54,7 @@ class contacto : AppCompatActivity() {
             startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc4){
-            val cambio = Intent(this, eliminarchocolate::class.java)
+            val cambio = Intent(this, eliminarmascota::class.java)
             startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc5){

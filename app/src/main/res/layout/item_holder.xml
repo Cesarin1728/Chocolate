@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="120dp">
@@ -13,13 +13,11 @@
         android:layout_width="205dp"
         android:layout_height="100dp"
         android:fontFamily="@font/letra"
-        android:clickable="true"
-        />
-    <!--        Nuevo elemento clickable, convierte el texto en un botón sin ser botón-->
-
+        android:clickable="true"/>
+    <!--         Nuevo elemento clickable, convierte el texto en un botón sin ser botón -->
     <TextView
         android:gravity="center"
-        android:id="@+id/txtMarca"
+        android:id="@+id/txtRaza"
         android:textSize="25sp"
         android:text="Raza"
         android:background="#95cff5"

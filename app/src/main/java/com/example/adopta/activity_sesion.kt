@@ -1,4 +1,4 @@
-package com.example.chocolate
+package com.example.adopta
 
 import android.content.Context
 import android.content.Intent
@@ -23,8 +23,7 @@ class activity_sesion : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_sesion)
 
-        //sharedPref es una API para almacenar colecciones pequeñas de datos clave valor
-        sharedPref = getSharedPreferences("Usuarios", Context.MODE_PRIVATE) //Abrimos o creamos el archivo Usuarios en modo privado [ara que solo nuestra app pueda acceder
+        sharedPref = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putString("admin_user", "Administrador")
         editor.putString("admin_pass", "admin1234")
@@ -45,13 +44,6 @@ class activity_sesion : AppCompatActivity() {
         }
     }
 
-    // Registrar 10 chocolates
-    // Modificar el país de un chocolate
-    // Capturar los chocolates en aditar (incluyendo antes y después del cambio de país)
-    // Eliminar el 5to y último chocolate
-    // Tomar captura de los chocolates que quedaron
-    // Capturas error sesión (para los 3 casos)
-
     private fun iniciar() {
         val user = etUsuario.text.toString()
         val pass = etContra.text.toString()
@@ -66,8 +58,8 @@ class activity_sesion : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         } else if (user == trabUser && pass == trabPass) {
             sharedPref.edit().putString("rol", "Trabajador").apply()
-            if (ListaChocolate.lista.isEmpty()) {
-                Toast.makeText(this, "No hay chocolates :(", Toast.LENGTH_SHORT).show()
+            if (ListaMascota.lista.isEmpty()) {
+                Toast.makeText(this, "No hay mascotas registradas :(", Toast.LENGTH_SHORT).show()
             }
             startActivity(Intent(this, Ver::class.java))
         } else if (user == adminUser || user == trabUser) {

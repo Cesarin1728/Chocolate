@@ -1,6 +1,5 @@
-package com.example.chocolate
+package com.example.adopta
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -15,8 +14,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-class eliminarchocolate : AppCompatActivity() {
-    
+class eliminarmascota : AppCompatActivity() {
+
     lateinit var recy: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,24 +26,24 @@ class eliminarchocolate : AppCompatActivity() {
         val toolbar : Toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        recy=findViewById<RecyclerView>(R.id.rv)
-        recy.layoutManager= LinearLayoutManager(this)
+        recy = findViewById<RecyclerView>(R.id.rv)
+        recy.layoutManager = LinearLayoutManager(this)
 
-        val adapter = EliminarAdapter(ListaChocolate.lista)
-        recy.adapter=adapter
-        adapter.notifyDataSetChanged() //Para que haga las actualizaciones al adaptador, como si le dijera "Hey te actualizaste"
+        val adapter = EliminarAdapter(ListaMascota.lista)
+        recy.adapter = adapter
+        adapter.notifyDataSetChanged()
 
         val btnEliminar = findViewById<Button>(R.id.btnEliminar)
 
         btnEliminar.setOnClickListener {
             adapter.eliminarCosa()
-            if (ListaChocolate.lista.isEmpty()) {
-                Toast.makeText(this, "No hay chocolates :(", Toast.LENGTH_SHORT).show()
+            if (ListaMascota.lista.isEmpty()) {
+                Toast.makeText(this, "No hay mascotas registradas :(", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Chocolates eliminados", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Mascotas eliminadas", Toast.LENGTH_SHORT).show()
             }
         }
-        
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -71,7 +70,7 @@ class eliminarchocolate : AppCompatActivity() {
             startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc4){
-//            val cambio = Intent(this, eliminarchocolate::class.java)
+//            val cambio = Intent(this, eliminarmascota::class.java)
 //            startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc5){
@@ -89,6 +88,6 @@ class eliminarchocolate : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
-    
-    
+
+
 }

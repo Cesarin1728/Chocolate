@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,7 +22,7 @@
             android:src="@drawable/cohcolateimg"
             android:scaleType="centerCrop"
             android:alpha="0.3"
-            android:contentDescription="Imagen de fondo" />
+            android:contentDescription="Imagen de fondo"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -37,23 +37,23 @@
                 android:layout_height="wrap_content"
                 android:text="Nombre"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"/>
 
             <TextView
-                android:id="@+id/tvMarca"
+                android:id="@+id/tvRaza"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Raza"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"/>
 
             <TextView
-                android:id="@+id/tvPaisOrigen"
+                android:id="@+id/tvAlimento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Alimento"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"/>
 
             <TextView
                 android:id="@+id/tvTelefono"
@@ -61,47 +61,47 @@
                 android:layout_height="wrap_content"
                 android:text="Teléfono de Contacto"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"/>
 
             <TextView
-                android:id="@+id/tvPresentacion"
+                android:id="@+id/tvEspecie"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Presentación"
+                android:text="Especie"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"/>
 
             <TextView
-                android:id="@+id/tvPorcentajeCacao"
+                android:id="@+id/tvEdad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Edad"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"/>
 
             <TextView
-                android:id="@+id/tvTipoCacao"
+                android:id="@+id/tvTamaño"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tipo de Cacao"
+                android:text="Tamaño"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"/>
 
             <TextView
-                android:id="@+id/tvPerfilSabor"
+                android:id="@+id/tvPelaje"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Perfil del Sabor"
+                android:text="Pelaje"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"/>
 
             <TextView
-                android:id="@+id/tvTipo"
+                android:id="@+id/tvComportamiento"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tipo"
+                android:text="Comportamiento"
                 android:textSize="15sp"
-                android:layout_marginBottom="8dp" />
+                android:layout_marginBottom="8dp"/>
 
             <TextView
                 android:id="@+id/tvPeso"
@@ -109,8 +109,7 @@
                 android:layout_height="wrap_content"
                 android:text="Peso"
                 android:textSize="15sp"
-                android:layout_marginBottom="16dp" />
-
+                android:layout_marginBottom="16dp"/>
 
             <Button
                 android:id="@+id/btnllamar"
@@ -118,10 +117,8 @@
                 android:layout_height="wrap_content"
                 android:text="Llamar"
                 app:icon="@android:drawable/sym_action_call"
-                app:iconTint = "#15cc0e"
+                app:iconTint="#15cc0e"
                 android:backgroundTint="#7B3F00"/>
-
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -135,6 +132,5 @@
         android:layout_gravity="center"
         android:backgroundTint="#7B3F00"
         />
-
 
 </LinearLayout>

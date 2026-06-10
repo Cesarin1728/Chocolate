@@ -1,44 +1,35 @@
-package com.example.chocolate
+package com.example.adopta
 
-import android.view.LayoutInflater // Para convertir nuestro XML a un objeto view y utilizarlo
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-// Nuestro adaptador se llama EliminarAdapter.
-// Recibe una lista (de chocolates) como parametro
-// Hereda de RecyclerView.Adapter. Preguntar maestra
-// RecyclerView.Adapter<EliminarAdapter.ViewHolderClass> hereda y puede usar los métodos
-class EliminarAdapter (private val lista: MutableList<Chocolate>) : RecyclerView.Adapter<EliminarAdapter.ViewHolderClass>(){
+class EliminarAdapter (private val lista: MutableList<Mascota>) : RecyclerView.Adapter<EliminarAdapter.ViewHolderClass>(){
 
     private val itemSeleccion = mutableListOf<Int>()
 
-    // onCreateViewHolder es para crear un nuevo item y que el ViewHolder sepa donde inflarlo.
-    // Osea que infla nuestro XML item_holder_eliminar para cada tarjeta y así poder utilizarlo
     override fun onCreateViewHolder(
-        parent: ViewGroup, //Para saber el tamaño y forma del contenedor
-        viewType: Int // Se puede usar si tenemos diferentes diseños
+        parent: ViewGroup,
+        viewType: Int
     ): ViewHolderClass {
-        val view = LayoutInflater.from(parent.context) //Lo inflamos para usarlo como objeto
-            .inflate(R.layout.item_holder_eliminar, parent, false) //le decimos que va a usar nuestro diseño del holder
-        return ViewHolderClass(view) // Retorna un viewHolder del layout inflado
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_holder_eliminar, parent, false)
+        return ViewHolderClass(view)
     }
 
-    // Para vinvlular los datos que gestionamos con views que componen el Layout
     override fun onBindViewHolder(
-        holder: ViewHolderClass, //Nuestro contenedor del onCreate
-        position: Int //Índice del elemento de la lsita
+        holder: ViewHolderClass,
+        position: Int
     ) {
-        val item = lista[position] // Chocolate de la posición del holder
-        // Ponemos los datos del chocolate en el holder
+        val item = lista[position]
         holder.nombre.text = item.nombre
         holder.especie.text = item.especie
         holder.peso.text = item.peso
 
-        // Es como el listener de un botón, pero aquí verifica si a la checkbox se le hace click
-        holder.checkBox.setOnCheckedChangeListener(null) // Quitamos temporalmente el listener. Para evitar que al reciclar un ViewHolder, el listener viejo se dispare po si solo al ser el mismo ViewHolder
+        holder.checkBox.setOnCheckedChangeListener(null)
         holder.checkBox.isChecked = itemSeleccion.contains(position)
 
         holder.checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
@@ -52,7 +43,7 @@ class EliminarAdapter (private val lista: MutableList<Chocolate>) : RecyclerView
         }
     }
 
-    override fun getItemCount(): Int = lista.size // Para ver cuantos elementos se están gestionando, calcular los fuera de la zona visible y reutilizar los ViewHolder
+    override fun getItemCount(): Int = lista.size
 
     fun eliminarCosa() {
         itemSeleccion.sortedDescending().forEach {

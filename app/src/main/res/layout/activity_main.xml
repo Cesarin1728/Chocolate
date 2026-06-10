@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -11,28 +11,28 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar" />
+        layout="@layout/toolbar"/>
 
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Nombre" />
+        android:hint="Nombre de la mascota"/>
 
     <EditText
         android:id="@+id/etRaza"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Raza" />
+        android:hint="Raza"/>
 
     <EditText
         android:id="@+id/etAlimento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Alimento" />
+        android:hint="Alimento preferido"/>
 
     <EditText
         android:id="@+id/etTelefono"
@@ -40,45 +40,45 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:hint="Teléfono de Contacto"
-        android:inputType="phone" />
+        android:inputType="phone"/>
 
     <Spinner
         android:id="@+id/spEspecie"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"/>
 
     <EditText
         android:id="@+id/etEdad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Edad"
-        android:inputType="numberDecimal" />
+        android:hint="Edad (años)"
+        android:inputType="numberDecimal"/>
 
     <Spinner
         android:id="@+id/spTamaño"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"/>
 
     <Spinner
         android:id="@+id/spPelaje"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"/>
 
     <Spinner
         android:id="@+id/spComportamiento"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"/>
 
     <Spinner
         android:id="@+id/spPeso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp" />
+        android:layout_margin="10dp"/>
 
     <Button
         android:id="@+id/btnAceptar"
@@ -87,7 +87,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
         android:backgroundTint="#0fd9d5"
-        android:text="Aceptar" />
+        android:text="Aceptar"/>
 
     <Button
         android:id="@+id/btnVer"
@@ -96,6 +96,6 @@
         android:layout_gravity="center"
         android:backgroundTint="#0fd9d5"
         android:hint="Mascotas"
-        android:textColorHint="@color/white" />
+        android:textColorHint="@color/white"/>
 
 </LinearLayout>

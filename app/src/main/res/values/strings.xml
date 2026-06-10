@@ -1,26 +1,22 @@
 <resources>
-    <string name="app_name">Chocolate</string>
-
+    <string name="app_name">Adopta</string>
     <string-array name="especie">
         <item>Perro</item>
         <item>Gato</item>
         <item>Tortuga</item>
         <item>Ave</item>
     </string-array>
-
     <string-array name="tamaño">
         <item>Grande</item>
         <item>Mediano</item>
         <item>Pequeño</item>
     </string-array>
-
     <string-array name="pelaje">
         <item>Largo</item>
         <item>Nulo</item>
         <item>Esponjoso</item>
         <item>Liso</item>
     </string-array>
-
     <string-array name="comportamiento">
         <item>Agresivo</item>
         <item>Calmado</item>
@@ -28,11 +24,10 @@
         <item>Territorial</item>
         <item>Temperamental</item>
     </string-array>
-
     <string-array name="peso">
         <item>Menos de 1kg</item>
-        <item>90g</item>
-        <item>250g</item>
+        <item>1kg - 5kg</item>
+        <item>5kg - 15kg</item>
+        <item>Más de 15kg</item>
     </string-array>
-
 </resources>

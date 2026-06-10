@@ -1,4 +1,4 @@
-package com.example.chocolate
+package com.example.adopta
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

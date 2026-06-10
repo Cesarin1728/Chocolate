@@ -1,6 +1,6 @@
-package com.example.chocolate
+package com.example.adopta
 
-data class Chocolate(
+data class Mascota(
     val nombre: String,
     val raza: String,
     val alimento: String,
