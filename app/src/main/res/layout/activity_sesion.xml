@@ -7,11 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".activity_sesion">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/toolbar"
-        />
-
     <ImageView
         android:id="@+id/ivFondo"
         android:layout_width="match_parent"
