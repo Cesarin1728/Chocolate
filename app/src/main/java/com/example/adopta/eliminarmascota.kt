@@ -21,7 +21,7 @@ class eliminarmascota : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_eliminarchocolate)
+        setContentView(R.layout.activity_eliminarmascota)
 
         val toolbar : Toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
