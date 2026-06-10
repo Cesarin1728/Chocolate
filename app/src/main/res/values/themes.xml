@@ -5,5 +5,5 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.Chocolate" parent="Base.Theme.Adopta" />
+    <style name="Theme.Adopta" parent="Base.Theme.Adopta" />
 </resources>
