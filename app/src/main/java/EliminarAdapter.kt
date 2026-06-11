@@ -1,13 +1,18 @@
 package com.example.adopta
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import org.json.JSONObject
 
-class EliminarAdapter (private val lista: MutableList<Mascota>) : RecyclerView.Adapter<EliminarAdapter.ViewHolderClass>(){
+class EliminarAdapter (private val lista: MutableList<Mascota>, private val context: Context) : RecyclerView.Adapter<EliminarAdapter.ViewHolderClass>(){
 
     private val itemSeleccion = mutableListOf<Int>()
 
@@ -46,12 +51,52 @@ class EliminarAdapter (private val lista: MutableList<Mascota>) : RecyclerView.A
     override fun getItemCount(): Int = lista.size
 
     fun eliminarCosa() {
-        itemSeleccion.sortedDescending().forEach {
-                index -> lista.removeAt(index)
+        val indices = itemSeleccion.sortedDescending()
+        var pendientes = indices.size
+
+        if (pendientes == 0) {
+            notifyDataSetChanged()
+            return
         }
 
-        itemSeleccion.clear()
-        notifyDataSetChanged()
+        for (index in indices) {
+            val id = lista[index].id
+            val peticion = object : StringRequest(
+                Request.Method.POST,
+                Config.URL_ELIMINAR,
+                { respuesta ->
+                    try {
+                        val json = JSONObject(respuesta)
+                        if (json.getBoolean("exito")) {
+                            lista.removeAt(index)
+                        } else {
+                            Toast.makeText(context, json.getString("mensaje"), Toast.LENGTH_SHORT).show()
+                        }
+                    } catch (e: Exception) {
+                        Toast.makeText(context, "Error al leer la respuesta", Toast.LENGTH_SHORT).show()
+                    }
+                    pendientes--
+                    if (pendientes == 0) {
+                        itemSeleccion.clear()
+                        notifyDataSetChanged()
+                    }
+                },
+                { error ->
+                    Toast.makeText(context, "Error de conexión: ${error.message}", Toast.LENGTH_LONG).show()
+                    pendientes--
+                    if (pendientes == 0) {
+                        itemSeleccion.clear()
+                        notifyDataSetChanged()
+                    }
+                }
+            ) {
+                override fun getParams(): MutableMap<String, String> {
+                    return hashMapOf("id" to id.toString())
+                }
+            }
+
+            VolleySingleton.getInstance(context).requestQueue.add(peticion)
+        }
     }
 
     class ViewHolderClass (view : View) :

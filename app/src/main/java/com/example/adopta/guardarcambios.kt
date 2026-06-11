@@ -14,6 +14,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import org.json.JSONObject
 
 class guardarcambios : AppCompatActivity() {
 
@@ -170,21 +173,58 @@ class guardarcambios : AppCompatActivity() {
             return
         }
 
-        val mascotaNueva = Mascota(
-            nombre = nombre,
-            raza = raza,
-            alimento = alimento,
-            telefonoContacto = telefono,
-            especie = spEspecie.selectedItem.toString(),
-            edad = edad,
-            tamaño = spTamaño.selectedItem.toString(),
-            pelaje = spPelaje.selectedItem.toString(),
-            comportamiento = spComportamiento.selectedItem.toString(),
-            peso = spPeso.selectedItem.toString()
-        )
+        val id = ListaMascota.lista[mascotaActual].id
 
-        ListaMascota.lista[mascotaActual] = mascotaNueva
-        Toast.makeText(this, "Cambios guardados", Toast.LENGTH_SHORT).show()
+        val peticion = object : StringRequest(
+            Request.Method.POST,
+            Config.URL_EDITAR,
+            { respuesta ->
+                try {
+                    val json = JSONObject(respuesta)
+                    if (json.getBoolean("exito")) {
+                        ListaMascota.lista[mascotaActual] = Mascota(
+                            id             = id,
+                            nombre         = nombre,
+                            raza           = raza,
+                            alimento       = alimento,
+                            telefonoContacto = telefono,
+                            especie        = spEspecie.selectedItem.toString(),
+                            edad           = edad,
+                            tamaño         = spTamaño.selectedItem.toString(),
+                            pelaje         = spPelaje.selectedItem.toString(),
+                            comportamiento = spComportamiento.selectedItem.toString(),
+                            peso           = spPeso.selectedItem.toString()
+                        )
+                        Toast.makeText(this, "Cambios guardados", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, json.getString("mensaje"), Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Error al leer la respuesta", Toast.LENGTH_SHORT).show()
+                }
+            },
+            { error ->
+                Toast.makeText(this, "Error de conexión: ${error.message}", Toast.LENGTH_LONG).show()
+            }
+        ) {
+            override fun getParams(): MutableMap<String, String> {
+                return hashMapOf(
+                    "id"             to id.toString(),
+                    "nombre"         to nombre,
+                    "raza"           to raza,
+                    "alimento"       to alimento,
+                    "telefono"       to telefono,
+                    "especie"        to spEspecie.selectedItem.toString(),
+                    "edad"           to edad,
+                    "tamanio"        to spTamaño.selectedItem.toString(),
+                    "pelaje"         to spPelaje.selectedItem.toString(),
+                    "comportamiento" to spComportamiento.selectedItem.toString(),
+                    "peso"           to spPeso.selectedItem.toString()
+                )
+            }
+        }
+
+        VolleySingleton.getInstance(this).requestQueue.add(peticion)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

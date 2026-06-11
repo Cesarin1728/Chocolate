@@ -29,7 +29,7 @@ class eliminarmascota : AppCompatActivity() {
         recy = findViewById<RecyclerView>(R.id.rv)
         recy.layoutManager = LinearLayoutManager(this)
 
-        val adapter = EliminarAdapter(ListaMascota.lista)
+        val adapter = EliminarAdapter(ListaMascota.lista, this)
         recy.adapter = adapter
         adapter.notifyDataSetChanged()
 
@@ -88,6 +88,4 @@ class eliminarmascota : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
-
-
 }
