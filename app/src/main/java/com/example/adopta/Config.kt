@@ -1,7 +1,7 @@
 package com.example.adopta
 
 object Config {
-    const val URL_BASE     = "http://10.0.2.2/adopta_api/"
+    const val URL_BASE     = "http://192.168.0.164/adopta_api/"
     const val URL_LOGIN    = URL_BASE + "login.php"
     const val URL_LISTAR   = URL_BASE + "listar.php"
     const val URL_AGREGAR  = URL_BASE + "agregar.php"

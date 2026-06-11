@@ -11,6 +11,9 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import org.json.JSONObject
 
 class MainActivity : AppCompatActivity() {
 
@@ -105,21 +108,42 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        val info = Mascota(
-            nombre = nombre,
-            raza = raza,
-            alimento = alimento,
-            telefonoContacto = telefono,
-            especie = spEspecie.selectedItem.toString(),
-            edad = edad,
-            tamaño = spTamaño.selectedItem.toString(),
-            pelaje = spPelaje.selectedItem.toString(),
-            comportamiento = spComportamiento.selectedItem.toString(),
-            peso = spPeso.selectedItem.toString()
-        )
+        val peticion = object : StringRequest(
+            Request.Method.POST,
+            Config.URL_AGREGAR,
+            { respuesta ->
+                try {
+                    val json = JSONObject(respuesta)
+                    if (json.getBoolean("exito")) {
+                        Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT).show()
+                    } else {
+                        Toast.makeText(this, json.getString("mensaje"), Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Error al leer la respuesta", Toast.LENGTH_SHORT).show()
+                }
+            },
+            { error ->
+                Toast.makeText(this, "Error de conexión: ${error.message}", Toast.LENGTH_LONG).show()
+            }
+        ) {
+            override fun getParams(): MutableMap<String, String> {
+                return hashMapOf(
+                    "nombre"          to nombre,
+                    "raza"            to raza,
+                    "alimento"        to alimento,
+                    "telefono"        to telefono,
+                    "especie"         to spEspecie.selectedItem.toString(),
+                    "edad"            to edad,
+                    "tamanio"         to spTamaño.selectedItem.toString(),
+                    "pelaje"          to spPelaje.selectedItem.toString(),
+                    "comportamiento"  to spComportamiento.selectedItem.toString(),
+                    "peso"            to spPeso.selectedItem.toString()
+                )
+            }
+        }
 
-        ListaMascota.lista.add(info)
-        Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT).show()
+        VolleySingleton.getInstance(this).requestQueue.add(peticion)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
