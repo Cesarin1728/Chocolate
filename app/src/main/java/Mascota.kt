@@ -1,6 +1,7 @@
 package com.example.adopta
 
 data class Mascota(
+    val id: Int = 0,
     val nombre: String,
     val raza: String,
     val alimento: String,

@@ -2,70 +2,76 @@ package com.example.adopta
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.android.volley.Request
+import com.android.volley.toolbox.StringRequest
+import org.json.JSONObject
 
 class activity_sesion : AppCompatActivity() {
-    lateinit var etUsuario: EditText
-    lateinit var etContra: EditText
-    lateinit var btnIniciar: Button
-    lateinit var sharedPref: SharedPreferences
+
+    private lateinit var etUsuario: EditText
+    private lateinit var etContra: EditText
+    private lateinit var btnIniciar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_sesion)
 
-        sharedPref = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
-        val editor = sharedPref.edit()
-        editor.putString("admin_user", "Administrador")
-        editor.putString("admin_pass", "admin1234")
-        editor.putString("trabajador_user", "Trabajador")
-        editor.putString("trabajador_pass", "traba1234")
-        editor.apply()
+        etUsuario = findViewById(R.id.etUsuario)
+        etContra  = findViewById(R.id.etContra)
+        btnIniciar = findViewById(R.id.btnIniciar)
 
-        etUsuario = findViewById<EditText>(R.id.etUsuario)
-        etContra = findViewById<EditText>(R.id.etContra)
-        btnIniciar = findViewById<Button>(R.id.btnIniciar)
-
-        btnIniciar.setOnClickListener { iniciar() }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        btnIniciar.setOnClickListener { iniciarSesion() }
     }
 
-    private fun iniciar() {
-        val user = etUsuario.text.toString()
-        val pass = etContra.text.toString()
+    private fun iniciarSesion() {
+        val usuario = etUsuario.text.toString().trim()
+        val clave   = etContra.text.toString().trim()
 
-        val adminUser = sharedPref.getString("admin_user", "Administrador")
-        val adminPass = sharedPref.getString("admin_pass", "admin1234")
-        val trabUser = sharedPref.getString("trabajador_user", "Trabajador")
-        val trabPass = sharedPref.getString("trabajador_pass", "traba1234")
-
-        if (user == adminUser && pass == adminPass) {
-            sharedPref.edit().putString("rol", "Administrador").apply()
-            startActivity(Intent(this, MainActivity::class.java))
-        } else if (user == trabUser && pass == trabPass) {
-            sharedPref.edit().putString("rol", "Trabajador").apply()
-            if (ListaMascota.lista.isEmpty()) {
-                Toast.makeText(this, "No hay mascotas registradas :(", Toast.LENGTH_SHORT).show()
-            }
-            startActivity(Intent(this, Ver::class.java))
-        } else if (user == adminUser || user == trabUser) {
-            Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
-        } else {
-            Toast.makeText(this, "Usuario incorrecto", Toast.LENGTH_SHORT).show()
+        if (usuario.isEmpty() || clave.isEmpty()) {
+            Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
+            return
         }
+
+        val peticion = object : StringRequest(
+            Request.Method.POST,
+            Config.URL_LOGIN,
+            { respuesta ->
+                try {
+                    val json = JSONObject(respuesta)
+                    if (json.getBoolean("exito")) {
+                        val rol = json.getString("rol")
+                        val prefs = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
+                        prefs.edit()
+                            .putString("rol", rol)
+                            .putString("nombre", json.getString("nombre"))
+                            .apply()
+
+                        if (rol == "Administrador") {
+                            startActivity(Intent(this, MainActivity::class.java))
+                        } else {
+                            startActivity(Intent(this, Ver::class.java))
+                        }
+                    } else {
+                        Toast.makeText(this, json.getString("mensaje"), Toast.LENGTH_SHORT).show()
+                    }
+                } catch (e: Exception) {
+                    Toast.makeText(this, "Error al leer la respuesta", Toast.LENGTH_SHORT).show()
+                }
+            },
+            { error ->
+                Toast.makeText(this, "Error de conexión: ${error.message}", Toast.LENGTH_LONG).show()
+            }
+        ) {
+            override fun getParams(): MutableMap<String, String> {
+                return hashMapOf("nombre" to usuario, "clave" to clave)
+            }
+        }
+
+        VolleySingleton.getInstance(this).requestQueue.add(peticion)
     }
 }
