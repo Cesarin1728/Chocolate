@@ -20,16 +20,34 @@
         android:text="Cesar Augusto Ramos Cruz"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="35dp"
         android:layout_gravity="center"
         />
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="350dp"
+        android:layout_height="200dp"
         android:layout_marginTop="20dp"
         android:src="@drawable/cesar"
         android:layout_gravity="center"
         />
 
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nadya Irina Díaz López"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="35dp"
+        android:layout_gravity="center"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/nadya"
+        android:layout_gravity="center"
+        />
 </LinearLayout>

@@ -33,7 +33,6 @@ class creador : AppCompatActivity() {
         val rol = sharedPref.getString("rol", "")
         if (rol == "Trabajador") {
             menu?.findItem(R.id.opc1)?.isVisible = false
-            menu?.findItem(R.id.opc2)?.isVisible = false
             menu?.findItem(R.id.opc3)?.isVisible = false
             menu?.findItem(R.id.opc4)?.isVisible = false
         }

@@ -34,5 +34,26 @@
         android:layout_marginTop="100dp"
         android:layout_gravity="center"
         />
+    <TextView
+        android:id="@+id/tvCorreo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="a23300756@ceti.mx"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/tvRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="23300756"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        />
 
 </LinearLayout>

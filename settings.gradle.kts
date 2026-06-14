@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "chocolate"
+rootProject.name = "adoptar"
 include(":app")
  
