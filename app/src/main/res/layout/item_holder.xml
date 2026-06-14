@@ -22,7 +22,8 @@
         android:text="Raza"
         android:background="#95cff5"
         android:layout_width="205dp"
-        android:layout_height="75dp"
-        android:fontFamily="@font/letra"/>
+        android:layout_height="100dp"
+        android:fontFamily="@font/letra"
+        android:clickable="true"/>
 
 </LinearLayout>
