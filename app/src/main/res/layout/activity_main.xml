@@ -18,7 +18,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:hint="Nombre de la mascota"/>
+        android:hint="Nombre de la mascota"
+        />
 
     <EditText
         android:id="@+id/etRaza"
@@ -86,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="#0fd9d5"
+        android:backgroundTint="#00A9FF"
         android:text="Aceptar"/>
 
     <Button
@@ -94,7 +95,7 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:backgroundTint="#0fd9d5"
+        android:backgroundTint="#00A9FF"
         android:hint="Mascotas"
         android:textColorHint="@color/white"/>
 
