@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#95e3e6"
+    android:background="@color/fondo"
     tools:context=".eliminarmascota">
 
     <include
@@ -20,6 +20,7 @@
         android:layout_gravity="center"
         android:layout_margin="25dp"
         android:text="Eliminar"
+        android:backgroundTint="@color/secundario"
         android:textColor="@color/black"
         />
 

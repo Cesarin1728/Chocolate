@@ -9,7 +9,7 @@
         android:id="@+id/txtNombre"
         android:textSize="25sp"
         android:text="nombre"
-        android:background="#62bffc"
+        android:background="@color/primario"
         android:layout_width="205dp"
         android:layout_height="100dp"
         android:fontFamily="@font/letra"
@@ -20,9 +20,10 @@
         android:id="@+id/txtRaza"
         android:textSize="25sp"
         android:text="Raza"
-        android:background="#95cff5"
+        android:background="@color/secundario"
         android:layout_width="205dp"
-        android:layout_height="75dp"
-        android:fontFamily="@font/letra"/>
+        android:layout_height="100dp"
+        android:fontFamily="@font/letra"
+        android:clickable="true"/>
 
 </LinearLayout>
