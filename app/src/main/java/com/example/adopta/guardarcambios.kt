@@ -1,5 +1,6 @@
 package com.example.adopta
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -173,7 +174,7 @@ class guardarcambios : AppCompatActivity() {
             return
         }
 
-        val id = ListaMascota.lista[mascotaActual].id
+        val id = ListaMascota.lista[mascotaActual].id // obtenemos el id de la mascota actual
 
         val peticion = object : StringRequest(
             Request.Method.POST,
@@ -250,6 +251,8 @@ class guardarcambios : AppCompatActivity() {
             startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc5){
+            val prefs = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
+            prefs.edit().remove("rol").apply()
             val cambio = Intent(this, activity_sesion::class.java)
             startActivity(cambio)
         }

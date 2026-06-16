@@ -1,5 +1,6 @@
 package com.example.adopta
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -74,6 +75,8 @@ class eliminarmascota : AppCompatActivity() {
 //            startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc5){
+            val prefs = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
+            prefs.edit().remove("rol").apply()
             val cambio = Intent(this, activity_sesion::class.java)
             startActivity(cambio)
         }

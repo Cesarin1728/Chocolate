@@ -37,53 +37,9 @@ class Ver : AppCompatActivity() {
             insets
         }
 
-        listar()
-    }
-
-    private fun listar() {
-        val peticion = object : StringRequest(
-            Request.Method.POST,
-            Config.URL_LISTAR,
-            { respuesta ->
-                try {
-                    val json = JSONObject(respuesta)
-                    if (json.getBoolean("exito")) {
-                        ListaMascota.lista.clear()
-                        val arreglo = json.getJSONArray("mascotas")
-                        for (i in 0 until arreglo.length()) {
-                            val obj = arreglo.getJSONObject(i)
-                            ListaMascota.lista.add(
-                                Mascota(
-                                    id             = obj.getInt("id"),
-                                    nombre         = obj.getString("nombre"),
-                                    raza           = obj.getString("raza"),
-                                    alimento       = obj.getString("alimento"),
-                                    telefonoContacto = obj.getString("telefono_contacto"),
-                                    especie        = obj.getString("especie"),
-                                    edad           = obj.getString("edad"),
-                                    tamaño         = obj.getString("tamanio"),
-                                    pelaje         = obj.getString("pelaje"),
-                                    comportamiento = obj.getString("comportamiento"),
-                                    peso           = obj.getString("peso")
-                                )
-                            )
-                        }
-                        val adapter = MascotaAdapter(ListaMascota.lista) //Asignamos le adapter y le pasamos la lista de mascotass
-                        recy.adapter = adapter //Le damos a nuestra vista reciclada el adaptador
-                        adapter.notifyDataSetChanged() //Para que haga las actualizaciones al adaptador, como si le dijera "Hey te actualizaste"
-                    } else {
-                        Toast.makeText(this, json.getString("mensaje"), Toast.LENGTH_SHORT).show()
-                    }
-                } catch (e: Exception) {
-                    Toast.makeText(this, "Error al leer la respuesta", Toast.LENGTH_SHORT).show()
-                }
-            },
-            { error ->
-                Toast.makeText(this, "Error de conexión: ${error.message}", Toast.LENGTH_LONG).show()
-            }
-        ) {}
-
-        VolleySingleton.getInstance(this).requestQueue.add(peticion)
+        val adapter = MascotaAdapter(ListaMascota.lista) //Asignamos le adapter y le pasamos la lista de mascotass
+        recy.adapter = adapter //Le damos a nuestra vista reciclada el adaptador
+        adapter.notifyDataSetChanged() //Para que haga las actualizaciones al adaptador, como si le dijera "Hey te actualizaste"
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -116,6 +72,8 @@ class Ver : AppCompatActivity() {
             startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc5){
+            val prefs = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
+            prefs.edit().remove("rol").apply()
             val cambio = Intent(this, activity_sesion::class.java)
             startActivity(cambio)
         }

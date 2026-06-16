@@ -57,6 +57,8 @@ class creador : AppCompatActivity() {
             startActivity(cambio)
         }
         if(item.getItemId() == R.id.opc5){
+            val prefs = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
+            prefs.edit().remove("rol").apply()
             val cambio = Intent(this, activity_sesion::class.java)
             startActivity(cambio)
         }
