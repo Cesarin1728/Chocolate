@@ -205,7 +205,7 @@ class guardarcambios : AppCompatActivity() {
                 }
             },
             { error ->
-                Toast.makeText(this, "Error de conexión: ${error.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_LONG).show()
             }
         ) {
             override fun getParams(): MutableMap<String, String> {
@@ -225,7 +225,7 @@ class guardarcambios : AppCompatActivity() {
             }
         }
 
-        VolleySingleton.getInstance(this).requestQueue.add(peticion)
+        VolleyCola.getInstance(this).requestQueue.add(peticion)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

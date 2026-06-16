@@ -66,7 +66,7 @@ class activity_sesion : AppCompatActivity() {
                 }
             },
             { error ->
-                Toast.makeText(this, "Error de conexión: ${error.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_LONG).show()
             }
         ) {
             // aquí definimos que datos vamos a mandar al php en el POST
@@ -76,7 +76,7 @@ class activity_sesion : AppCompatActivity() {
             }
         }
 
-        VolleySingleton.getInstance(this).requestQueue.add(peticion) // le damos la petición a la cola de volley para ejecutarla
+        VolleyCola.getInstance(this).requestQueue.add(peticion) // le damos la petición a la cola de volley para ejecutarla
     }
 
     private fun cargarMascotas() {
@@ -113,10 +113,10 @@ class activity_sesion : AppCompatActivity() {
                 }
             },
             { error ->
-                Toast.makeText(this, "Error de conexión: ${error.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_LONG).show()
             }
         ) {}
 
-        VolleySingleton.getInstance(this).requestQueue.add(peticion) // le damos la petición a la cola de volley para ejecutarla
+        VolleyCola.getInstance(this).requestQueue.add(peticion) // le damos la petición a la cola de volley para ejecutarla
     }
 }

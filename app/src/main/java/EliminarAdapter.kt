@@ -82,7 +82,7 @@ class EliminarAdapter (private val lista: MutableList<Mascota>, private val cont
                     }
                 },
                 { error ->
-                    Toast.makeText(context, "Error de conexión: ${error.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(context, "Error: ${error.message}", Toast.LENGTH_LONG).show()
                     pendientes--
                     if (pendientes == 0) {
                         itemSeleccion.clear()
@@ -95,7 +95,7 @@ class EliminarAdapter (private val lista: MutableList<Mascota>, private val cont
                 }
             }
 
-            VolleySingleton.getInstance(context).requestQueue.add(peticion)
+            VolleyCola.getInstance(context).requestQueue.add(peticion)
         }
     }
 
