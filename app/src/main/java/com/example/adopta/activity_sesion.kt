@@ -44,6 +44,7 @@ class activity_sesion : AppCompatActivity() {
                 try {
                     val json = JSONObject(respuesta)
                     if (json.getBoolean("exito")) {
+                        // Inicio de sesión exitoso
                         val rol = json.getString("rol")
                         val prefs = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
                         prefs.edit()
@@ -57,7 +58,8 @@ class activity_sesion : AppCompatActivity() {
                             startActivity(Intent(this, Ver::class.java))
                         }
                     } else {
-                        Toast.makeText(this, json.getString("mensaje"), Toast.LENGTH_SHORT).show()
+                        val mensajeError = json.getString("mensaje")
+                        Toast.makeText(this, mensajeError, Toast.LENGTH_SHORT).show()
                     }
                 } catch (e: Exception) {
                     Toast.makeText(this, "Error al leer la respuesta", Toast.LENGTH_SHORT).show()

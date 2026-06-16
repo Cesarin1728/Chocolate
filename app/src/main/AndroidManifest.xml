@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:networkSecurityConfig="@xml/network_security_config"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- Añadimos esta parte nueva para el permiso -->
 <!--    Le decimos que necesitamos usar el hardware del teléfono-->

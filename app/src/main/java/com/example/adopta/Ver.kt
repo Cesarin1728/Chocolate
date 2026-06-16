@@ -68,7 +68,7 @@ class Ver : AppCompatActivity() {
                                 )
                             )
                         }
-                        val adapter = MascotaAdapter(ListaMascota.lista) //Asignamos le adapter y le pasamos la lista de chocolates
+                        val adapter = MascotaAdapter(ListaMascota.lista) //Asignamos le adapter y le pasamos la lista de mascotass
                         recy.adapter = adapter //Le damos a nuestra vista reciclada el adaptador
                         adapter.notifyDataSetChanged() //Para que haga las actualizaciones al adaptador, como si le dijera "Hey te actualizaste"
                     } else {
