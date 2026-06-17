@@ -71,21 +71,27 @@ class tarjeta : AppCompatActivity() {
     }
 
     private fun llamar() {
-        if(ContextCompat.checkSelfPermission(
+        //Necesitamos que el usuario nos de autorización
+        //Recibe contexto y permiso que se necesita
+        if(ContextCompat.checkSelfPermission( //Verifica si el usuario ya dió permiso
                 this,
-                Manifest.permission.CALL_PHONE
-            ) != PackageManager.PERMISSION_GRANTED
+                Manifest.permission.CALL_PHONE //Permiso especifico que necesitamos (lo declaramos también en el manifest)
+            )!= PackageManager.PERMISSION_GRANTED //Garantizar permiso en caso de no estar autorizado
         ) {
-            ActivityCompat.requestPermissions(
+            ActivityCompat.requestPermissions(//Si no está, esta parte nos manda el recuadro para autorizar
                 this,
-                arrayOf(Manifest.permission.CALL_PHONE),
-                REQUEST_CALL
+                arrayOf(Manifest.permission.CALL_PHONE), //Enviar la lista de permisos, en este caso solo el de llamar
+                REQUEST_CALL //Pedir la llamada, debemos declararlo con un número entero
             )
         }
-        else {
-            val intent = Intent(Intent.ACTION_CALL)
-            intent.data = Uri.parse("tel:" + tvTelefono.text.toString())
+        else{ //En este caso usaremos el Intent para dar un servicio
+            val intent = Intent(Intent.ACTION_CALL) //En este caso queremos una acción de llamar, entonces le damos diferentes parametros
+            //Parecido a una URL, en este caso identifica algo de forma general
+            //En este caso para identificar un recurso
+            intent.data = Uri.parse("tel:" + tvTelefono.text.toString()) //Obtenemos el número del tvTelefono
+            //Uri.parse lo ponemos en esquema de telefono con el uri
             startActivity(intent)
+
         }
     }
 

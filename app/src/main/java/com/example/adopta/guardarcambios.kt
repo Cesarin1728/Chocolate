@@ -184,17 +184,17 @@ class guardarcambios : AppCompatActivity() {
                     val json = JSONObject(respuesta)
                     if (json.getBoolean("exito")) {
                         ListaMascota.lista[mascotaActual] = Mascota(
-                            id             = id,
-                            nombre         = nombre,
-                            raza           = raza,
-                            alimento       = alimento,
+                            id = id,
+                            nombre = nombre,
+                            raza = raza,
+                            alimento = alimento,
                             telefonoContacto = telefono,
-                            especie        = spEspecie.selectedItem.toString(),
-                            edad           = edad,
-                            tamaño         = spTamaño.selectedItem.toString(),
-                            pelaje         = spPelaje.selectedItem.toString(),
+                            especie = spEspecie.selectedItem.toString(),
+                            edad = edad,
+                            tamaño = spTamaño.selectedItem.toString(),
+                            pelaje = spPelaje.selectedItem.toString(),
                             comportamiento = spComportamiento.selectedItem.toString(),
-                            peso           = spPeso.selectedItem.toString()
+                            peso = spPeso.selectedItem.toString()
                         )
                         Toast.makeText(this, "Cambios guardados", Toast.LENGTH_SHORT).show()
                     } else {
@@ -210,17 +210,17 @@ class guardarcambios : AppCompatActivity() {
         ) {
             override fun getParams(): MutableMap<String, String> {
                 return hashMapOf(
-                    "id"             to id.toString(),
-                    "nombre"         to nombre,
-                    "raza"           to raza,
-                    "alimento"       to alimento,
-                    "telefono"       to telefono,
-                    "especie"        to spEspecie.selectedItem.toString(),
-                    "edad"           to edad,
-                    "tamanio"        to spTamaño.selectedItem.toString(),
-                    "pelaje"         to spPelaje.selectedItem.toString(),
+                    "id" to id.toString(),
+                    "nombre" to nombre,
+                    "raza" to raza,
+                    "alimento" to alimento,
+                    "telefono" to telefono,
+                    "especie" to spEspecie.selectedItem.toString(),
+                    "edad" to edad,
+                    "tamanio" to spTamaño.selectedItem.toString(),
+                    "pelaje" to spPelaje.selectedItem.toString(),
                     "comportamiento" to spComportamiento.selectedItem.toString(),
-                    "peso"           to spPeso.selectedItem.toString()
+                    "peso" to spPeso.selectedItem.toString()
                 )
             }
         }

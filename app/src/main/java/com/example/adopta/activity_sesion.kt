@@ -21,8 +21,8 @@ class activity_sesion : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sesion)
 
-        etUsuario  = findViewById(R.id.etUsuario)
-        etContra   = findViewById(R.id.etContra)
+        etUsuario = findViewById(R.id.etUsuario)
+        etContra = findViewById(R.id.etContra)
         btnIniciar = findViewById(R.id.btnIniciar)
 
         cargarMascotas()
@@ -32,7 +32,7 @@ class activity_sesion : AppCompatActivity() {
 
     private fun iniciarSesion() {
         val usuario = etUsuario.text.toString().trim()
-        val clave   = etContra.text.toString().trim()
+        val clave = etContra.text.toString().trim()
 
         if (usuario.isEmpty() || clave.isEmpty()) {
             Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show()
@@ -46,7 +46,7 @@ class activity_sesion : AppCompatActivity() {
                 try {
                     val json = JSONObject(respuesta) // convertimos el texto de respuesta a JSON
                     if (json.getBoolean("exito")) { // leemos la variable "exito" que nos devuelve el php (true o false)
-                        val rol = json.getString("rol") // leemos la variable "rol" que devuelve el PHP
+                        val rol = json.getString("rol") // leemos la variable "rol" que devuelve el JSON
                         val prefs = getSharedPreferences("Usuarios", Context.MODE_PRIVATE)
                         prefs.edit()
                             .putString("rol", rol)
@@ -93,17 +93,17 @@ class activity_sesion : AppCompatActivity() {
                             val obj = arreglo.getJSONObject(i)
                             ListaMascota.lista.add(
                                 Mascota(
-                                    id               = obj.getInt("id"),
-                                    nombre           = obj.getString("nombre"),
-                                    raza             = obj.getString("raza"),
-                                    alimento         = obj.getString("alimento"),
+                                    id = obj.getInt("id"),
+                                    nombre = obj.getString("nombre"),
+                                    raza = obj.getString("raza"),
+                                    alimento = obj.getString("alimento"),
                                     telefonoContacto = obj.getString("telefono_contacto"),
-                                    especie          = obj.getString("especie"),
-                                    edad             = obj.getString("edad"),
-                                    tamaño           = obj.getString("tamanio"),
-                                    pelaje           = obj.getString("pelaje"),
-                                    comportamiento   = obj.getString("comportamiento"),
-                                    peso             = obj.getString("peso")
+                                    especie = obj.getString("especie"),
+                                    edad = obj.getString("edad"),
+                                    tamaño = obj.getString("tamanio"),
+                                    pelaje = obj.getString("pelaje"),
+                                    comportamiento = obj.getString("comportamiento"),
+                                    peso = obj.getString("peso")
                                 )
                             )
                         }

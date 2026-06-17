@@ -28,14 +28,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var spPelaje: Spinner
     lateinit var spComportamiento: Spinner
     lateinit var spPeso: Spinner
-    lateinit var btnAceptar : Button
-    lateinit var btnVer : Button
+    lateinit var btnAceptar: Button
+    lateinit var btnVer: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val toolbar :Toolbar = findViewById<Toolbar>(R.id.toolbar)
+        val toolbar : Toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
         etNombre = findViewById(R.id.etNombre)
@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
         btnVer.setOnClickListener { mostrar() }
     }
 
-    private fun mostrar (){
+    private fun mostrar() {
         var mostrar = Intent(this, Ver::class.java)
         startActivity(mostrar)
     }
@@ -98,7 +98,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
 
-        if (telefono.length != 10 ){
+        if (telefono.length != 10) {
             Toast.makeText(this, "El teléfono debe tener 10 dígitos", Toast.LENGTH_SHORT).show()
             return
         }
@@ -130,16 +130,16 @@ class MainActivity : AppCompatActivity() {
         ) {
             override fun getParams(): MutableMap<String, String> {
                 return hashMapOf(
-                    "nombre"          to nombre,
-                    "raza"            to raza,
-                    "alimento"        to alimento,
-                    "telefono"        to telefono,
-                    "especie"         to spEspecie.selectedItem.toString(),
-                    "edad"            to edad,
-                    "tamanio"         to spTamaño.selectedItem.toString(),
-                    "pelaje"          to spPelaje.selectedItem.toString(),
-                    "comportamiento"  to spComportamiento.selectedItem.toString(),
-                    "peso"            to spPeso.selectedItem.toString()
+                    "nombre" to nombre,
+                    "raza" to raza,
+                    "alimento" to alimento,
+                    "telefono" to telefono,
+                    "especie" to spEspecie.selectedItem.toString(),
+                    "edad" to edad,
+                    "tamanio" to spTamaño.selectedItem.toString(),
+                    "pelaje" to spPelaje.selectedItem.toString(),
+                    "comportamiento" to spComportamiento.selectedItem.toString(),
+                    "peso" to spPeso.selectedItem.toString()
                 )
             }
         }

@@ -11,23 +11,29 @@ import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
 import com.android.volley.toolbox.StringRequest
 import org.json.JSONObject
-
+// Nuestro adaptador se llama EliminarAdapter.
+// Recibe una lista (de mascotas) como parametro
+// Hereda de RecyclerView.Adapter. Preguntar maestra
+// RecyclerView.Adapter<EliminarAdapter.ViewHolderClass> hereda y puede usar los métodos
 class EliminarAdapter (private val lista: MutableList<Mascota>, private val context: Context) : RecyclerView.Adapter<EliminarAdapter.ViewHolderClass>(){
 
     private val itemSeleccion = mutableListOf<Int>()
 
+    // onCreateViewHolder es para crear un nuevo item y que el ViewHolder sepa donde inflarlo.
+    // Osea que infla nuestro XML item_holder_eliminar para cada tarjeta y así poder utilizarlo
     override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
+        parent: ViewGroup, //Para saber el tamaño y forma del contenedor
+        viewType: Int // Se puede usar si tenemos diferentes diseños
     ): ViewHolderClass {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.item_holder_eliminar, parent, false)
-        return ViewHolderClass(view)
+        return ViewHolderClass(view) // Retorna un viewHolder del layout inflado
     }
 
+    // Para vinvlular los datos que gestionamos con views que componen el Layout
     override fun onBindViewHolder(
-        holder: ViewHolderClass,
-        position: Int
+        holder: ViewHolderClass, //Nuestro contenedor del onCreate
+        position: Int //Índice del elemento de la lsita
     ) {
         val item = lista[position]
         holder.nombre.text = item.nombre
@@ -48,7 +54,7 @@ class EliminarAdapter (private val lista: MutableList<Mascota>, private val cont
         }
     }
 
-    override fun getItemCount(): Int = lista.size
+    override fun getItemCount(): Int = lista.size // Para ver cuantos elementos se están gestionando, calcular los fuera de la zona visible y reutilizar los ViewHolder
 
     fun eliminarCosa() {
         val indices = itemSeleccion.sortedDescending()
