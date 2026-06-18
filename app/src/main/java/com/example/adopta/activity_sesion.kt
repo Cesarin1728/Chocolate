@@ -25,8 +25,7 @@ class activity_sesion : AppCompatActivity() {
         etContra = findViewById(R.id.etContra)
         btnIniciar = findViewById(R.id.btnIniciar)
 
-        cargarMascotas()
-
+        ListaMascota.cargarMascotas(this)
         btnIniciar.setOnClickListener { iniciarSesion() }
     }
 
@@ -75,47 +74,6 @@ class activity_sesion : AppCompatActivity() {
                 return hashMapOf("nombre" to usuario, "clave" to clave) // para construir y devolver las parejas de datos
             }
         }
-
-        VolleyCola.getInstance(this).requestQueue.add(peticion) // le damos la petición a la cola de volley para ejecutarla
-    }
-
-    private fun cargarMascotas() {
-        val peticion = object : StringRequest(
-            Request.Method.POST,
-            Config.URL_LISTAR,
-            { respuesta ->
-                try {
-                    val json = JSONObject(respuesta) // convertimos el texto de respuesta a JSON
-                    if (json.getBoolean("exito")) { // leemos la variable "exito" que nos devuelve el php (true o false)
-                        ListaMascota.lista.clear()
-                        val arreglo = json.getJSONArray("mascotas")
-                        for (i in 0 until arreglo.length()) {
-                            val obj = arreglo.getJSONObject(i)
-                            ListaMascota.lista.add(
-                                Mascota(
-                                    id = obj.getInt("id"),
-                                    nombre = obj.getString("nombre"),
-                                    raza = obj.getString("raza"),
-                                    alimento = obj.getString("alimento"),
-                                    telefonoContacto = obj.getString("telefono_contacto"),
-                                    especie = obj.getString("especie"),
-                                    edad = obj.getString("edad"),
-                                    tamaño = obj.getString("tamanio"),
-                                    pelaje = obj.getString("pelaje"),
-                                    comportamiento = obj.getString("comportamiento"),
-                                    peso = obj.getString("peso")
-                                )
-                            )
-                        }
-                    }
-                } catch (e: Exception) {
-                    Toast.makeText(this, "Error al leer la respuesta", Toast.LENGTH_SHORT).show()
-                }
-            },
-            { error ->
-                Toast.makeText(this, "Error: ${error.message}", Toast.LENGTH_LONG).show()
-            }
-        ) {}
 
         VolleyCola.getInstance(this).requestQueue.add(peticion) // le damos la petición a la cola de volley para ejecutarla
     }

@@ -117,6 +117,7 @@ class MainActivity : AppCompatActivity() {
                     val json = JSONObject(respuesta)
                     if (json.getBoolean("exito")) {
                         Toast.makeText(this, "Guardado", Toast.LENGTH_SHORT).show()
+                        ListaMascota.cargarMascotas(this)
                     } else {
                         Toast.makeText(this, json.getString("mensaje"), Toast.LENGTH_SHORT).show()
                     }
